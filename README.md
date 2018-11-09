@@ -20,6 +20,6 @@ Download: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com
 
 # 3. Sonar Status
 
-[![Sonar Status](https://sonarcloud.io/api/project_badges/measure?project=com.sdk4.common%3Asdk4-java-common&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.sdk4.common:sdk4-java-common)
+[![Sonar Status](https://sonarcloud.io/api/project_badges/measure?project=com.sdk4%3Asdk4-java-sms&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.sdk4:sdk4-java-sms)
 
 (sonarcloud use "Sonar Way")
