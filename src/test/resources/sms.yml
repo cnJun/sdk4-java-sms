@@ -23,7 +23,8 @@ channels:
   aliyun-1:
     provider: aliyun
     params:
-      accessKeyId:
-      accessKeySecret:
+      accessKeyId: key
+      accessKeySecret: secret
   test-1:
     provider: test
+

@@ -11,8 +11,8 @@ Maven :
 ```
 <dependency>
     <groupId>com.sdk4</groupId>
-	<artifactId>sdk4-java-sms</artifactId>
-	<version>0.0.1</version>
+    <artifactId>sdk4-java-sms</artifactId>
+    <version>0.0.1</version>
 </dependency>
 ```
 
