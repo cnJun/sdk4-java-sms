@@ -1,0 +1,29 @@
+############### 短信配置 ###############
+
+# 连接超时
+connectTimeout: 10000
+# 读取超时
+readTimeout: 10000
+# 短信模板
+templates:
+  test_send:
+    channel: test-1
+    signName: 测试发送
+    templateCode: SMS_00001
+    templateParam:
+      code: code
+  prod_send:
+    channel: aliyun-1
+    signName: 测试发送
+    templateCode: SMS_00002
+    templateParam:
+      code: code
+# 短信通道
+channels:
+  aliyun-1:
+    provider: aliyun
+    params:
+      accessKeyId:
+      accessKeySecret:
+  test-1:
+    provider: test
