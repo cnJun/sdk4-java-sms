@@ -3,7 +3,9 @@ package com.sdk4.sms;
 import com.sdk4.sms.enums.ProviderEnum;
 import com.sdk4.sms.provider.AliyunProvider;
 import com.sdk4.sms.provider.TestProvider;
+import com.sdk4.sms.provider.YunpianProvider;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.yaml.snakeyaml.Yaml;
 
@@ -17,6 +19,7 @@ import java.util.concurrent.ConcurrentMap;
  *
  * @author sh
  */
+@Slf4j
 public class SmsHelper {
     private SmsHelper() {
         throw new IllegalStateException("Utility class");
@@ -27,11 +30,16 @@ public class SmsHelper {
 
     static {
         addProvider(new AliyunProvider());
+        addProvider(new YunpianProvider());
         addProvider(new TestProvider());
     }
 
     public static void addProvider(Provider provider) {
-        api.put(provider.provider(), provider);
+        try {
+            api.put(provider.provider(), provider);
+        } catch (Exception e) {
+            log.error("load sms provider fail: {}", provider.getClass().getName());
+        }
     }
 
     public static Provider getProvider(ProviderEnum provider) {

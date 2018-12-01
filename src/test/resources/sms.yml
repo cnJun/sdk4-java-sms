@@ -18,6 +18,36 @@ templates:
     templateCode: SMS_00002
     templateParam:
       code: code
+  ch_empty:
+    channel:
+    signName: 测试发送
+    templateCode: SMS_00003
+    templateParam:
+      code: code
+  ch_notexist:
+    channel: ch-1
+    signName: 测试发送
+    templateCode: SMS_00003
+    templateParam:
+      code: code
+  ch_provider_empty:
+    channel: ch-2
+    signName: 测试发送
+    templateCode: SMS_00003
+    templateParam:
+      code: code
+  ch_provider_params_empty:
+    channel: ch-3
+    signName: 测试发送
+    templateCode: SMS_00003
+    templateParam:
+      code: code
+  dcon:
+    channel: dcon-1
+    signName: DCON
+    templateContent: 【DCON】您的验证码是{code}
+    templateParam:
+      code: code
 # 短信通道
 channels:
   aliyun-1:
@@ -27,4 +57,14 @@ channels:
       accessKeySecret: secret
   test-1:
     provider: test
-
+  ch-2:
+    provider:
+    params:
+      accessKeyId: key
+      accessKeySecret: secret
+  ch-3:
+    provider: aliyun
+  dcon-1:
+    provider: yunpian
+    params:
+      apikey:

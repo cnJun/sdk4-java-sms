@@ -20,6 +20,11 @@ public enum ProviderEnum {
      */
     aliyun("阿里云"),
 
+    /**
+     * 云片
+     */
+    yunpian("云片"),
+
     ;
 
     private String text;

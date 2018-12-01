@@ -77,9 +77,9 @@ public class AliyunProvider implements Provider {
             request.setSignName(cfg.getTemplate().getSignName());
             request.setTemplateCode(cfg.getTemplate().getTemplateCode());
 
-            Map<String, String> params_ = SmsUtils.renderTo(params, cfg.getTemplate().getTemplateParam());
+            Map<String, String> paramsRender = SmsUtils.renderTo(params, cfg.getTemplate().getTemplateParam());
 
-            String paramString = new Gson().toJson(params_);
+            String paramString = new Gson().toJson(paramsRender);
 
             request.setTemplateParam(paramString);
 
@@ -96,12 +96,12 @@ public class AliyunProvider implements Provider {
                 String msg = sendSmsResponse.getMessage();
                 String reqId = sendSmsResponse.getRequestId();
                 String bizId = sendSmsResponse.getBizId();
-                if ("OK".equals(sendSmsResponse.getCode())) {
+                if ("OK".equals(code)) {
                     result.setCode(0);
                     result.setMessage(StringUtils.isEmpty(msg) ? "发送成功" : msg);
                 } else {
                     result.setCode(4);
-                    result.setMessage(StringUtils.isEmpty(msg) ? "发送失败" : (StringUtils.isEmpty(code) ? "" : code + ":") + msg);
+                    result.setMessage(StringUtils.isEmpty(msg) ? "发送失败" + code : code + "," + msg);
                 }
                 if (StringUtils.isNotEmpty(reqId)) {
                     result.put("requestId", reqId);
